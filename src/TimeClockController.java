@@ -199,7 +199,6 @@ public class TimeClockController implements ActionListener {
 
     private void viewLogs() {
         User currentUser = Application.getInstance().getCurrentUser();
-        System.out.println("view logs");
         if (!currentUser.isAdmin()) {
             JOptionPane.showMessageDialog(null, "User does not have admin privileges.");
             return;

@@ -54,7 +54,6 @@ public class MainScreenController implements ActionListener {
         }
         else {
             Application.getInstance().setCurrentUser(user);
-            System.out.println(Application.getInstance().getCurrentUser().getUserName());
             this.mainScreen.setVisible(false);
             Application.getInstance().getTimeClockScreen().setVisible(true);
         }
