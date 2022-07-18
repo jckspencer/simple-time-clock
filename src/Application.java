@@ -97,9 +97,9 @@ public class Application {
             connection = DriverManager.getConnection("jdbc:sqlite:data/timeclock.db");
 
             Statement statement = connection.createStatement();
-            if (!statement.executeQuery("SELECT * FROM Users").next()) {
-                initializeDatabase(statement);
-            }
+//            if (!statement.executeQuery("SELECT * FROM Users").next()) {
+//                initializeDatabase(statement);
+//            }
         }
         catch (ClassNotFoundException ex) {
             System.out.println("SQLite is not installed. Exit with error.");
