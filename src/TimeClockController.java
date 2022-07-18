@@ -13,9 +13,9 @@ import java.awt.event.ActionListener;
  * @date 07-14-2022
  */
 public class TimeClockController implements ActionListener {
-    private TimeClockScreen timeClockScreen;
-    private DatabaseManager databaseManager;
-    private JTextArea outputLog;
+    private final TimeClockScreen timeClockScreen;
+    private final DatabaseManager databaseManager;
+    private final JTextArea outputLog;
 
     /**
      * Constructor for time clock controller. Establishes database connection
@@ -76,10 +76,7 @@ public class TimeClockController implements ActionListener {
             JOptionPane.showMessageDialog(null, "User already has active shift!");
             return;
         }
-        TimeEntry entry = new TimeEntry();
-        entry.setUserName(currentUser.getUserName());
-        entry.setEntryType(TimeEntry.ENTRY_TYPE.START_SHIFT);
-        entry.setTimeStamp(HelperMethods.getCurrentTimestamp());
+        TimeEntry entry = makeEntry(currentUser, TimeEntry.ENTRY_TYPE.START_SHIFT);
 
         currentUser.setHasActiveShift(true);
         databaseManager.saveEntry(entry);
@@ -104,10 +101,7 @@ public class TimeClockController implements ActionListener {
                 return;
             }
         }
-        TimeEntry entry = new TimeEntry();
-        entry.setUserName(currentUser.getUserName());
-        entry.setEntryType(TimeEntry.ENTRY_TYPE.END_SHIFT);
-        entry.setTimeStamp(HelperMethods.getCurrentTimestamp());
+        TimeEntry entry = makeEntry(currentUser, TimeEntry.ENTRY_TYPE.END_SHIFT);
 
         currentUser.setHasActiveShift(false);
         databaseManager.saveEntry(entry);
@@ -129,10 +123,7 @@ public class TimeClockController implements ActionListener {
             }
         }
 
-        TimeEntry entry = new TimeEntry();
-        entry.setUserName(currentUser.getUserName());
-        entry.setEntryType(TimeEntry.ENTRY_TYPE.START_BREAK);
-        entry.setTimeStamp(HelperMethods.getCurrentTimestamp());
+        TimeEntry entry = makeEntry(currentUser, TimeEntry.ENTRY_TYPE.START_BREAK);
 
         currentUser.setOnBreak(true);
         databaseManager.saveEntry(entry);
@@ -153,10 +144,7 @@ public class TimeClockController implements ActionListener {
                 return;
             }
         }
-        TimeEntry entry = new TimeEntry();
-        entry.setUserName(currentUser.getUserName());
-        entry.setEntryType(TimeEntry.ENTRY_TYPE.END_BREAK);
-        entry.setTimeStamp(HelperMethods.getCurrentTimestamp());
+        TimeEntry entry = makeEntry(currentUser, TimeEntry.ENTRY_TYPE.END_BREAK);
 
         currentUser.setOnBreak(false);
         databaseManager.saveEntry(entry);
@@ -178,10 +166,7 @@ public class TimeClockController implements ActionListener {
             }
         }
 
-        TimeEntry entry = new TimeEntry();
-        entry.setUserName(currentUser.getUserName());
-        entry.setEntryType(TimeEntry.ENTRY_TYPE.START_LUNCH);
-        entry.setTimeStamp(HelperMethods.getCurrentTimestamp());
+        TimeEntry entry = makeEntry(currentUser, TimeEntry.ENTRY_TYPE.START_LUNCH);
 
         currentUser.setOnLunch(true);
         databaseManager.saveEntry(entry);

@@ -12,7 +12,7 @@ import java.util.Vector;
  */
 
 public class DatabaseManager {
-    private Connection connection;
+    private final Connection connection;
 
     /**
      * Constructor for database manager.
@@ -122,15 +122,15 @@ public class DatabaseManager {
             ResultSet resultSet = statement.executeQuery("SELECT * FROM TimeEntries");
             ResultSetMetaData metaData = resultSet.getMetaData();
 
-            Vector<String> columns = new Vector<String>();
+            Vector<String> columns = new Vector<>();
             int columnCount = metaData.getColumnCount();
             for (int col = 1; col <= columnCount; col++) {
                 columns.add(metaData.getColumnName(col));
             }
 
-            Vector<Vector<Object>> data = new Vector<Vector<Object>>();
+            Vector<Vector<Object>> data = new Vector<>();
             while (resultSet.next()) {
-                Vector<Object> vector = new Vector<Object>();
+                Vector<Object> vector = new Vector<>();
                 for (int col = 1; col <= columnCount; col++) {
                     vector.add(resultSet.getObject(col));
                 }

@@ -34,23 +34,7 @@ public class Application {
 
     private Connection connection;
 
-    /**
-     *
-     * @return SQLite database connection
-     */
-    public Connection getConnection() {
-        return connection;
-    }
-
-    private DatabaseManager databaseManager;
-
-    /**
-     *
-     * @return database manager
-     */
-    public DatabaseManager getDatabaseManager() {
-        return databaseManager;
-    }
+    private final DatabaseManager databaseManager;
 
     private User currentUser = null;
 
@@ -70,7 +54,7 @@ public class Application {
         return this.currentUser;
     }
 
-    private MainScreen mainScreen = new MainScreen();
+    private final MainScreen mainScreen = new MainScreen();
 
     /**
      *
@@ -80,9 +64,9 @@ public class Application {
         return mainScreen;
     }
 
-    public MainScreenController mainScreenController;
+    public final MainScreenController mainScreenController;
 
-    private TimeClockScreen timeClockScreen = new TimeClockScreen();
+    private final TimeClockScreen timeClockScreen = new TimeClockScreen();
 
     /**
      *
@@ -92,7 +76,7 @@ public class Application {
         return timeClockScreen;
     }
 
-    public TimeClockController timeClockController;
+    public final TimeClockController timeClockController;
 
     /**
      * Database initialization is not yet implemented.

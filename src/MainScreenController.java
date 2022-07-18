@@ -11,8 +11,8 @@ import java.awt.event.ActionListener;
  * @date 07-14-2022
  */
 public class MainScreenController implements ActionListener {
-    private MainScreen mainScreen;
-    private DatabaseManager databaseManager;
+    private final MainScreen mainScreen;
+    private final DatabaseManager databaseManager;
 
     /**
      * Constructor for main screen controller. Establishes database

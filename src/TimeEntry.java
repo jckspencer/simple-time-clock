@@ -8,7 +8,7 @@
 public class TimeEntry {
 
     public enum ENTRY_TYPE {
-        START_SHIFT, END_SHIFT, START_LUNCH, END_LUNCH, START_BREAK, END_BREAK;
+        START_SHIFT, END_SHIFT, START_LUNCH, END_LUNCH, START_BREAK, END_BREAK
     }
 
     private String userName;

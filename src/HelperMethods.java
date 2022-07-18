@@ -16,8 +16,7 @@ public class HelperMethods {
      * @return 1 if true, 0 if false
      */
     public static int booleanToInt(boolean bool) {
-        int conversion = (bool)? 1 : 0;
-        return conversion;
+        return (bool)? 1 : 0;
     }
 
     /**
